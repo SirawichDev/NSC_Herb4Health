@@ -3,6 +3,7 @@ package com.example.sirawich.herb4test;
 import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -171,7 +172,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void addFragmentToScreen(Fragment fragment) {
-        getSupportFragmentManager().beginTransaction().add(R.id.frame_layout, fragment, "Herb_Fragment").commit();
+        Toast.makeText(this, "ยินดีต้องรับสู่คลังสมุนไพร", Toast.LENGTH_SHORT).show();
+        Intent i =  new Intent(MainActivity.this,FetchImageFirebase.class);
+        startActivity(i);
+
     }
 
     @Override
@@ -196,6 +200,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         if (tilesContainer.getChildAt(1).getLayoutParams().height != firstChildHeight) {
                             downToUpScroll(HelperView.getCurrentView(), HelperView.getFollowingView());
                         }
+                        //กดรูปภาพแล้ว intent ไปอีกหน้า ภาพ 2
+                        else {
+                            isFragmentOpened = true;
+                            fragment = (HerbFragment) Fragment.instantiate(this, HerbFragment.class.getName());
+                            addFragmentToScreen(fragment);
+                        }
                         break;
 
                     case 2:
@@ -215,7 +225,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (v.getTag().toString()) {
             case "0":
-                Toast.makeText(this, "Open Categories", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "ยินดีต้องรับสู่คลังสมุนไพร", Toast.LENGTH_SHORT).show();
+                Intent i =  new Intent(MainActivity.this,FetchImageFirebase.class);
+                startActivity(i);
                 break;
 
             case "1":

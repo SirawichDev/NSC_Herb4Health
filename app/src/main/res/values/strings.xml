@@ -1,9 +1,8 @@
 <resources>
     <string name="app_name">Herb4Test</string>
-    <string name="title_activity_herb_fragment">HerbFragment</string>
 
 
-        <string name="open">Open</string>
+    <string name="open">Open</string>
         <string name="close">Close</string>
 
         <!-- TODO: Remove or change this placeholder text -->
